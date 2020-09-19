@@ -1,0 +1,10 @@
+@import '../../styles/';
+
+.mission-patch {
+  @include image-300x200;
+
+  .mission-patch-image {
+    @include image-300x200;
+    object-fit: cover;
+  }
+}

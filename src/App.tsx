@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { MissionTitle, MissionDetails } from './components';
+import { MissionPatch, MissionTitle, MissionDetails } from './components';
 
 const app = {
-  width: '100vh',
+  width: '100vw',
 };
 
 function App() {
   return (
     <div style={app}>
+      <MissionPatch />
       <MissionTitle />
       <MissionDetails />
     </div>
