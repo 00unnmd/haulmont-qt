@@ -1,12 +1,15 @@
 import React from 'react';
-import './App.css';
+
+import { MissionTitle } from './components';
+
+const app = {
+  width: '100vh',
+};
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Launches</h1>
-      </header>
+    <div style={app}>
+      <MissionTitle />
     </div>
   );
 }

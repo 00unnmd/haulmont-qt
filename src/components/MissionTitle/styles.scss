@@ -1,0 +1,5 @@
+@import '../../styles/';
+
+.mission-title {
+  @include display-flex-space-between;
+}
