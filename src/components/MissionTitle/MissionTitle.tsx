@@ -9,8 +9,8 @@ const mocked = {
 export const MissionTitle = () => {
   return (
     <div className='mission-title'>
-      <h3 className='mission-title-name'>{mocked.title}</h3>
-      <h3 className='mission-title-date'>{mocked.date}</h3>
+      <p className='mission-title-name'>{mocked.title}</p>
+      <p className='mission-title-date'>{mocked.date}</p>
     </div>
   );
 };

@@ -2,4 +2,14 @@
 
 .mission-title {
   @include display-flex-space-between;
+  margin-bottom: 10px;
+
+  .mission-title-name {
+    font-size: $fz-large;
+    color: $clr-black;
+  }
+  .mission-title-date {
+    font-size: $fz-large;
+    color: $clr-dark-gray;
+  }
 }
