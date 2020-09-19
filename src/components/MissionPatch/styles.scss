@@ -2,6 +2,7 @@
 
 .mission-patch {
   @include image-300x200;
+  grid-row: 1/3;
 
   .mission-patch-image {
     @include image-300x200;

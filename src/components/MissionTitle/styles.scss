@@ -2,7 +2,6 @@
 
 .mission-title {
   @include display-flex-space-between;
-  margin-bottom: 10px;
 
   .mission-title-name {
     font-size: $fz-large;

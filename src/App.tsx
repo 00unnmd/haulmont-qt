@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MissionPatch, MissionTitle, MissionDetails } from './components';
+import { MissionPatch, MissionTitle, MissionDetails, Item } from './components';
 
 const app = {
   width: '100vw',
@@ -9,9 +9,7 @@ const app = {
 function App() {
   return (
     <div style={app}>
-      <MissionPatch />
-      <MissionTitle />
-      <MissionDetails />
+      <Item />
     </div>
   );
 }
