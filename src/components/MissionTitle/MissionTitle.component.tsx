@@ -6,7 +6,7 @@ const mocked = {
   date: '10.12.2015',
 };
 
-export const MissionTitle = () => {
+export const MissionTitle: React.FC = () => {
   return (
     <div className='mission-title'>
       <p className='mission-title-name'>{mocked.title}</p>
