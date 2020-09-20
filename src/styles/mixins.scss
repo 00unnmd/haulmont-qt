@@ -7,3 +7,10 @@
   width: 300px;
   height: 200px;
 }
+
+@mixin display-grid($columns, $rows, $gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  grid-gap: $gap;
+}
