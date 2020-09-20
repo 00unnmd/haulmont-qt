@@ -1,17 +1,9 @@
 import React from 'react';
 
-import { MissionPatch, MissionTitle, MissionDetails, Item } from './components';
-
-const app = {
-  width: '100vw',
-};
+import { Main } from './pages';
 
 function App() {
-  return (
-    <div style={app}>
-      <Item />
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;
