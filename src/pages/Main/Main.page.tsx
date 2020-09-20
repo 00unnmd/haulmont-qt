@@ -1,5 +1,5 @@
 import React from 'react';
-import { MissionList } from '../../components';
+import { MissionList, FilterDropdown } from '../../components';
 import './styles.scss';
 
 const data = [
@@ -12,6 +12,10 @@ const data = [
 export const Main: React.FC = () => {
   return (
     <div className='main-page'>
+      <div className='main-page-filters'>
+        <FilterDropdown />
+        <FilterDropdown />
+      </div>
       <MissionList />
     </div>
   );

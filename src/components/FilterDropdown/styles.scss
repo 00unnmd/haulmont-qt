@@ -1,1 +1,19 @@
 @import '../../styles/';
+
+.filter {
+  .filter-title,
+  .filter-dropdown {
+    font-size: $fz-large;
+    color: $clr-dark-gray;
+  }
+  .filter-title {
+    margin-bottom: 5px;
+  }
+  .filter-dropdown {
+    width: 400px;
+    height: 30px;
+    border-radius: 0px;
+    border-color: $clr-dark-gray;
+    background-color: $clr-white;
+  }
+}
