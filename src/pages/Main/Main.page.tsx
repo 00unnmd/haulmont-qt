@@ -25,7 +25,7 @@ export const Main: React.FC = () => {
         <FilterDropdown />
       </div>
       <div className='main-page-missions'>
-        <MissionList />
+        <MissionList data={launches} />
       </div>
     </div>
   );

@@ -26,11 +26,10 @@ export const useLaunches = () => {
 
   const getLaunchesProcessing = async () => {
     const onSuccess = async (success: []) => {
-      let res = await dataProcessing(success);
-      console.log('RES IS: ', res);
+      let updatedLaunches = await dataProcessing(success);
+      console.log('RES IS: ', updatedLaunches);
 
-      dispatch(launchesSaver(res));
-      // processing data and dispatching success action
+      dispatch(launchesSaver(updatedLaunches));
     };
     const onError = (error: string) => {
       dispatch(launchesError(error));

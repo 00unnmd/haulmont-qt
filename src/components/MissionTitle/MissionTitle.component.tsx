@@ -1,16 +1,16 @@
 import React from 'react';
 import './styles.scss';
 
-const mocked = {
-  title: 'Mission Name',
-  date: '10.12.2015',
-};
+interface IProps {
+  name: string;
+  date: string;
+}
 
-export const MissionTitle: React.FC = () => {
+export const MissionTitle: React.FC<IProps> = props => {
   return (
     <div className='mission-title'>
-      <p className='mission-title-name'>{mocked.title}</p>
-      <p className='mission-title-date'>{mocked.date}</p>
+      <p className='mission-title-name'>{props.name}</p>
+      <p className='mission-title-date'>{props.date}</p>
     </div>
   );
 };
