@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MissionList, FilterDropdown } from '../../components';
 import './styles.scss';
 
-const data = [
-  {
-    title: '123',
-    date: '05.12.2019',
-  },
-];
+import { useLaunches } from '../../hooks/launches/useLaunches';
 
 export const Main: React.FC = () => {
+  const { getLaunchesProcessing } = useLaunches();
+
+  useEffect(() => {
+    getLaunchesProcessing();
+  }, []);
+
   return (
     <div className='main-page'>
       <div className='main-page-title'>
