@@ -15,10 +15,6 @@ export const Main: React.FC = () => {
     console.log('LAUNCHES: ', launches);
   }, [launches]);
 
-  useEffect(() => {
-    console.log('ERROR: ', error);
-  }, [error]);
-
   return (
     <div className='main-page'>
       <div className='main-page-title'>

@@ -1,3 +1,5 @@
+import { Launch } from '../../types/Launch';
+
 export const SAVE_LAUNCHES = 'SAVE_LAUNCHES';
 export const ERROR_LAUNCHES = 'ERROR_LAUNCHES';
 
@@ -11,14 +13,6 @@ interface ErrorLaunchesAction {
 }
 
 export type LaunchActionsTypes = SaveLaunchesAction | ErrorLaunchesAction;
-
-export interface Launch {
-  id: number;
-  patch: string;
-  name: string;
-  date: string;
-  details: string;
-}
 
 export interface LaunchesState {
   launches: Launch[];

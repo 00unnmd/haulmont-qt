@@ -1,4 +1,5 @@
-import { Launch, SAVE_LAUNCHES, ERROR_LAUNCHES, LaunchActionsTypes } from './types';
+import { Launch } from '../../types/Launch';
+import { SAVE_LAUNCHES, ERROR_LAUNCHES, LaunchActionsTypes } from './types';
 
 export const launchesSaver = (launches: Launch[]): LaunchActionsTypes => ({
   type: SAVE_LAUNCHES,
