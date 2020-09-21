@@ -1,7 +1,16 @@
 @import '../../styles/';
 
 .main-page {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+
+  .main-page-title {
+    color: $clr-dark-gray;
+  }
   .main-page-filters {
-    display: flex;
+    @include display-flex-space-between;
+    margin-bottom: 50px;
   }
 }

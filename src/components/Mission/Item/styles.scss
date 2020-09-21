@@ -2,4 +2,5 @@
 
 .mission {
   @include display-grid(300px 1fr, 16px 1fr, 20px);
+  margin-bottom: 30px;
 }

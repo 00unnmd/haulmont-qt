@@ -12,11 +12,16 @@ const data = [
 export const Main: React.FC = () => {
   return (
     <div className='main-page'>
+      <div className='main-page-title'>
+        <h1>Launches</h1>
+      </div>
       <div className='main-page-filters'>
         <FilterDropdown />
         <FilterDropdown />
       </div>
-      <MissionList />
+      <div className='main-page-missions'>
+        <MissionList />
+      </div>
     </div>
   );
 };
