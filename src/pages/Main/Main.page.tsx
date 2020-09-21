@@ -5,11 +5,19 @@ import './styles.scss';
 import { useLaunches } from '../../hooks/launches/useLaunches';
 
 export const Main: React.FC = () => {
-  const { getLaunchesProcessing } = useLaunches();
+  const { launches, error, getLaunchesProcessing } = useLaunches();
 
   useEffect(() => {
     getLaunchesProcessing();
   }, []);
+
+  useEffect(() => {
+    console.log('LAUNCHES: ', launches);
+  }, [launches]);
+
+  useEffect(() => {
+    console.log('ERROR: ', error);
+  }, [error]);
 
   return (
     <div className='main-page'>
