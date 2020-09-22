@@ -18,4 +18,4 @@
 
 ## Просмотр в онлайн-редакторе
 
-`https://codesandbox.io/s/github/00unnmd/haulmont-qt`
+https://codesandbox.io/s/github/00unnmd/haulmont-qt
