@@ -6,10 +6,8 @@ export interface Launch {
   details: string;
   launch_site: {
     name: string;
-    name_long: string;
   };
   rocket: {
     name: string;
-    type: string;
   };
 }

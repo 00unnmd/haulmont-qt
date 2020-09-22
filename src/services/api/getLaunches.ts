@@ -10,7 +10,7 @@ export const getLaunchesRequest = async ({ onSuccess, onError }: IArguments) => 
     if (response.status === 200) {
       return onSuccess(response.data);
     } else {
-      return onError('something wrong');
+      return onError('something wrong...');
     }
   });
 };

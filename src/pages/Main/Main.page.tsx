@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
-import { MissionList, FilterDropdown } from '../../components';
+import { MissionList, FilterDropdown, Loader } from '../../components';
 import './styles.scss';
 
 import { useLaunches } from '../../hooks/launches/useLaunches';
 
 export const Main: React.FC = () => {
   const {
-    launches,
-    error,
+    isLoading,
     filtersVariables,
-    launchSiteCurrent,
-    rocketCurrent,
     filteredLaunches,
     getLaunchesProcessing,
     saveCurrentLaunchSite,
@@ -20,19 +17,6 @@ export const Main: React.FC = () => {
   useEffect(() => {
     getLaunchesProcessing();
   }, []);
-
-  // useEffect(() => {
-  //   console.log('LAUNCHES: ', launches);
-  // }, [launches]);
-
-  // useEffect(() => {
-  //   console.log('FILTERS VARIABLES: ', filtersVariables);
-  // }, [filtersVariables]);
-
-  // useEffect(() => {
-  //   console.log('LAUNCHSITE CURR: ', launchSiteCurrent);
-  //   console.log('ROCKET CURR: ', rocketCurrent);
-  // }, [launchSiteCurrent, rocketCurrent]);
 
   return (
     <div className='main-page'>
@@ -52,7 +36,7 @@ export const Main: React.FC = () => {
         />
       </div>
       <div className='main-page-missions'>
-        <MissionList data={filteredLaunches} />
+        {isLoading ? <Loader /> : <MissionList data={filteredLaunches} />}
       </div>
     </div>
   );
