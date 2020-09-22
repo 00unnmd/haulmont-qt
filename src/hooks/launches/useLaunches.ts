@@ -32,13 +32,13 @@ export const useLaunches = () => {
 
   const saveCurrentLaunchSite = (currentLaunchSite: string) => {
     dispatch(currentLaunchSiteSaver(currentLaunchSite));
-    const filterResult = sortDataWithFilters();
-    console.log('res is: ', filterResult);
+    const filteredResult = sortDataWithFilters();
+    console.log('res is: ', filteredResult);
   };
   const saveCurrentRocket = (currentRocket: string) => {
     dispatch(currentRocketSaver(currentRocket));
-    const filterResult = sortDataWithFilters();
-    console.log('res is: ', filterResult);
+    const filteredResult = sortDataWithFilters();
+    console.log('res is: ', filteredResult);
   };
 
   const sortDataWithFilters = () => {
@@ -83,7 +83,7 @@ export const useLaunches = () => {
   const getFilterVariables = async (updArr: Launch[], searchField: string) => {
     let filterVariables: string[] = Array.from(
       //@ts-ignore
-      new Set(updArr.map((item: Launch) => item[searchField]['name']))
+      new Set(updArr.map((item: Launch) => item[searchField]['name'])) // need research
     );
     return filterVariables.filter(value => value != null);
   };

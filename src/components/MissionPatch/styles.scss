@@ -6,6 +6,6 @@
 
   .mission-patch-image {
     @include image-300x200;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
