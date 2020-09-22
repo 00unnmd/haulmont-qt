@@ -5,7 +5,7 @@ import './styles.scss';
 import { useLaunches } from '../../hooks/launches/useLaunches';
 
 export const Main: React.FC = () => {
-  const { launches, error, getLaunchesProcessing } = useLaunches();
+  const { launches, error, filtersVariables, getLaunchesProcessing } = useLaunches();
 
   useEffect(() => {
     getLaunchesProcessing();
@@ -14,6 +14,10 @@ export const Main: React.FC = () => {
   useEffect(() => {
     console.log('LAUNCHES: ', launches);
   }, [launches]);
+
+  useEffect(() => {
+    console.log('FILTERS VARIABLES: ', filtersVariables);
+  }, [filtersVariables]);
 
   return (
     <div className='main-page'>

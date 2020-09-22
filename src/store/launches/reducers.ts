@@ -1,9 +1,19 @@
-import { LaunchesState, SAVE_LAUNCHES, ERROR_LAUNCHES, LaunchActionsTypes } from './types';
+import {
+  LaunchesState,
+  SAVE_LAUNCHES,
+  ERROR_LAUNCHES,
+  SAVE_FILTERS_VARIABLES,
+  LaunchActionsTypes,
+} from './types';
 
 const defaultState: LaunchesState = {
   launches: [],
   isLoading: true,
   error: '',
+  filtersVariables: {
+    launch_site_variables: [],
+    rocket_variables: [],
+  },
 };
 
 export const launchesReducer = (
@@ -23,6 +33,15 @@ export const launchesReducer = (
         ...state,
         error: action.error,
         isLoading: false,
+      };
+    }
+    case SAVE_FILTERS_VARIABLES: {
+      return {
+        ...state,
+        filtersVariables: {
+          launch_site_variables: action.launchSites,
+          rocket_variables: action.rockets,
+        },
       };
     }
 
