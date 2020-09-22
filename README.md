@@ -8,6 +8,10 @@
 
 `git clone https://github.com/00unnmd/haulmont-qt.git`
 
+Перейдите в директорию склонированного проекта:
+
+`cd haulmont-qt/`
+
 Установите зависимости:
 
 `yarn install`
