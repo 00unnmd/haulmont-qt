@@ -5,6 +5,7 @@ import {
   SAVE_FILTERS_VARIABLES,
   SAVE_CURRENT_LAUNCH_SITE,
   SAVE_CURRENT_ROCKET,
+  SAVE_FILTERED_LAUNCHES,
   LaunchActionsTypes,
 } from './types';
 
@@ -35,4 +36,9 @@ export const currentLaunchSiteSaver = (currentLaunchSite: string): LaunchActions
 export const currentRocketSaver = (currentRocket: string): LaunchActionsTypes => ({
   type: SAVE_CURRENT_ROCKET,
   currentRocket,
+});
+
+export const filteredLaunchesSaver = (filteredLaunches: Launch[]): LaunchActionsTypes => ({
+  type: SAVE_FILTERED_LAUNCHES,
+  filteredLaunches,
 });

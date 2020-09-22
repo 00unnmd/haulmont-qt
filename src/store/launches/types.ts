@@ -5,6 +5,7 @@ export const ERROR_LAUNCHES = 'ERROR_LAUNCHES';
 export const SAVE_FILTERS_VARIABLES = 'SAVE_FILTERS_VARIABLES';
 export const SAVE_CURRENT_LAUNCH_SITE = 'SAVE_CURRENT_LAUNCH_SITE';
 export const SAVE_CURRENT_ROCKET = 'SAVE_CURRENT_ROCKET';
+export const SAVE_FILTERED_LAUNCHES = 'SAVE_FILTERED_LAUNCHES';
 
 interface SaveLaunchesAction {
   type: typeof SAVE_LAUNCHES;
@@ -27,12 +28,17 @@ interface SaveCurrentRocketAction {
   type: typeof SAVE_CURRENT_ROCKET;
   currentRocket: string;
 }
+interface SaveFilteredLaunchesAction {
+  type: typeof SAVE_FILTERED_LAUNCHES;
+  filteredLaunches: Launch[];
+}
 export type LaunchActionsTypes =
   | SaveLaunchesAction
   | ErrorLaunchesAction
   | SaveFiltersVariablesAction
   | SaveCurrentLaunchAction
-  | SaveCurrentRocketAction;
+  | SaveCurrentRocketAction
+  | SaveFilteredLaunchesAction;
 
 export interface LaunchesState {
   launches: Launch[];
@@ -44,4 +50,5 @@ export interface LaunchesState {
   };
   launchSiteCurrent: string;
   rocketCurrent: string;
+  filteredLaunches: Launch[];
 }

@@ -5,6 +5,7 @@ import {
   SAVE_FILTERS_VARIABLES,
   SAVE_CURRENT_LAUNCH_SITE,
   SAVE_CURRENT_ROCKET,
+  SAVE_FILTERED_LAUNCHES,
   LaunchActionsTypes,
 } from './types';
 
@@ -18,6 +19,7 @@ const defaultState: LaunchesState = {
   },
   launchSiteCurrent: 'all',
   rocketCurrent: 'all',
+  filteredLaunches: [],
 };
 
 export const launchesReducer = (
@@ -29,6 +31,7 @@ export const launchesReducer = (
       return {
         ...state,
         launches: action.launches,
+        filteredLaunches: action.launches,
         isLoading: false,
       };
     }
@@ -61,6 +64,12 @@ export const launchesReducer = (
       return {
         ...state,
         rocketCurrent: action.currentRocket,
+      };
+    }
+    case SAVE_FILTERED_LAUNCHES: {
+      return {
+        ...state,
+        filteredLaunches: action.filteredLaunches,
       };
     }
 

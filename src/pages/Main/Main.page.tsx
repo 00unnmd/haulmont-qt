@@ -11,6 +11,7 @@ export const Main: React.FC = () => {
     filtersVariables,
     launchSiteCurrent,
     rocketCurrent,
+    filteredLaunches,
     getLaunchesProcessing,
     saveCurrentLaunchSite,
     saveCurrentRocket,
@@ -51,7 +52,7 @@ export const Main: React.FC = () => {
         />
       </div>
       <div className='main-page-missions'>
-        <MissionList data={launches} />
+        <MissionList data={filteredLaunches} />
       </div>
     </div>
   );

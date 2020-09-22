@@ -6,6 +6,7 @@ import {
   filtersVariablesSaver,
   currentLaunchSiteSaver,
   currentRocketSaver,
+  filteredLaunchesSaver,
 } from '../../store/launches/actions';
 import { getLaunchesRequest } from '../../services';
 import { UPCOMING, NOIMAGE } from '../../constants';
@@ -20,6 +21,7 @@ export const useLaunches = () => {
     filtersVariables,
     launchSiteCurrent,
     rocketCurrent,
+    filteredLaunches,
   } = useSelector((state: RootState) => ({
     launches: state.launches.launches,
     isLoading: state.launches.isLoading,
@@ -27,18 +29,19 @@ export const useLaunches = () => {
     filtersVariables: state.launches.filtersVariables,
     launchSiteCurrent: state.launches.launchSiteCurrent,
     rocketCurrent: state.launches.rocketCurrent,
+    filteredLaunches: state.launches.filteredLaunches,
   }));
   const dispatch = useDispatch();
 
   const saveCurrentLaunchSite = (currentLaunchSite: string) => {
     dispatch(currentLaunchSiteSaver(currentLaunchSite));
     const filteredResult = sortDataWithFilters();
-    console.log('res is: ', filteredResult);
+    dispatch(filteredLaunchesSaver(filteredResult));
   };
   const saveCurrentRocket = (currentRocket: string) => {
     dispatch(currentRocketSaver(currentRocket));
     const filteredResult = sortDataWithFilters();
-    console.log('res is: ', filteredResult);
+    dispatch(filteredLaunchesSaver(filteredResult));
   };
 
   const sortDataWithFilters = () => {
@@ -115,6 +118,7 @@ export const useLaunches = () => {
     filtersVariables,
     launchSiteCurrent,
     rocketCurrent,
+    filteredLaunches,
     getLaunchesProcessing,
     saveCurrentLaunchSite,
     saveCurrentRocket,
