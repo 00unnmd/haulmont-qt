@@ -3,6 +3,8 @@ import { Launch } from '../../types/Launch';
 export const SAVE_LAUNCHES = 'SAVE_LAUNCHES';
 export const ERROR_LAUNCHES = 'ERROR_LAUNCHES';
 export const SAVE_FILTERS_VARIABLES = 'SAVE_FILTERS_VARIABLES';
+export const SAVE_CURRENT_LAUNCH_SITE = 'SAVE_CURRENT_LAUNCH_SITE';
+export const SAVE_CURRENT_ROCKET = 'SAVE_CURRENT_ROCKET';
 
 interface SaveLaunchesAction {
   type: typeof SAVE_LAUNCHES;
@@ -17,10 +19,20 @@ interface SaveFiltersVariablesAction {
   launchSites: string[];
   rockets: string[];
 }
+interface SaveCurrentLaunchAction {
+  type: typeof SAVE_CURRENT_LAUNCH_SITE;
+  currentLaunchSite: string;
+}
+interface SaveCurrentRocketAction {
+  type: typeof SAVE_CURRENT_ROCKET;
+  currentRocket: string;
+}
 export type LaunchActionsTypes =
   | SaveLaunchesAction
   | ErrorLaunchesAction
-  | SaveFiltersVariablesAction;
+  | SaveFiltersVariablesAction
+  | SaveCurrentLaunchAction
+  | SaveCurrentRocketAction;
 
 export interface LaunchesState {
   launches: Launch[];
@@ -30,4 +42,6 @@ export interface LaunchesState {
     launch_site_variables: string[];
     rocket_variables: string[];
   };
+  launchSiteCurrent: string;
+  rocketCurrent: string;
 }

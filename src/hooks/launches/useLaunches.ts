@@ -1,18 +1,65 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/reducers';
-import { launchesSaver, launchesError, filtersVariablesSaver } from '../../store/launches/actions';
+import {
+  launchesSaver,
+  launchesError,
+  filtersVariablesSaver,
+  currentLaunchSiteSaver,
+  currentRocketSaver,
+} from '../../store/launches/actions';
 import { getLaunchesRequest } from '../../services';
 import { UPCOMING, NOIMAGE } from '../../constants';
 import { Launch } from '../../types/Launch';
+import store from '../../store/store';
 
 export const useLaunches = () => {
-  const { launches, isLoading, error, filtersVariables } = useSelector((state: RootState) => ({
+  const {
+    launches,
+    isLoading,
+    error,
+    filtersVariables,
+    launchSiteCurrent,
+    rocketCurrent,
+  } = useSelector((state: RootState) => ({
     launches: state.launches.launches,
     isLoading: state.launches.isLoading,
     error: state.launches.error,
     filtersVariables: state.launches.filtersVariables,
+    launchSiteCurrent: state.launches.launchSiteCurrent,
+    rocketCurrent: state.launches.rocketCurrent,
   }));
   const dispatch = useDispatch();
+
+  const saveCurrentLaunchSite = (currentLaunchSite: string) => {
+    dispatch(currentLaunchSiteSaver(currentLaunchSite));
+    const filterResult = sortDataWithFilters();
+    console.log('res is: ', filterResult);
+  };
+  const saveCurrentRocket = (currentRocket: string) => {
+    dispatch(currentRocketSaver(currentRocket));
+    const filterResult = sortDataWithFilters();
+    console.log('res is: ', filterResult);
+  };
+
+  const sortDataWithFilters = () => {
+    var launchesSiteFilter = store.getState().launches.launchSiteCurrent;
+    var rocketFilter = store.getState().launches.rocketCurrent;
+    var updatedLaunches = store.getState().launches.launches;
+    const ALL = 'all';
+
+    if (launchesSiteFilter !== ALL && rocketFilter !== ALL) {
+      return updatedLaunches.filter(
+        item => item.launch_site.name === launchesSiteFilter && item.rocket.name === rocketFilter
+      );
+    }
+    if (launchesSiteFilter !== ALL) {
+      return updatedLaunches.filter(item => item.launch_site.name === launchesSiteFilter);
+    }
+    if (rocketFilter !== ALL) {
+      return updatedLaunches.filter(item => item.rocket.name === rocketFilter);
+    }
+    return updatedLaunches;
+  };
 
   const dataProcessing = async (arr: []) => {
     return Array.from(arr, (item: any) => {
@@ -61,5 +108,15 @@ export const useLaunches = () => {
     }
   };
 
-  return { launches, isLoading, error, filtersVariables, getLaunchesProcessing };
+  return {
+    launches,
+    isLoading,
+    error,
+    filtersVariables,
+    launchSiteCurrent,
+    rocketCurrent,
+    getLaunchesProcessing,
+    saveCurrentLaunchSite,
+    saveCurrentRocket,
+  };
 };
